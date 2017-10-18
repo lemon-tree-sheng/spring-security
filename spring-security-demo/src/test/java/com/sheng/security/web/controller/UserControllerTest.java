@@ -37,8 +37,11 @@ public class UserControllerTest {
                 .param("age", "18")
                 .param("ageTo", "60")
                 .param("xxx", "xxx")
+                .param("size", "15")
+//                .param("page", "3")
+                .param("sort", "age,desc")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.length()").value(3));
+                .andExpect(jsonPath("$.length()").value(3)); // @see github.com/json-path
     }
 }
