@@ -7,6 +7,7 @@ import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -53,7 +54,12 @@ public class UserController {
     }
 
     @PostMapping// 405错误一般是因为请求方法错误
-    public User create(@Valid @RequestBody User user) {
+    public User create(@Valid @RequestBody User user, BindingResult errors) {
+
+        if (errors.hasErrors()) {
+            errors.getAllErrors().stream().forEach(error -> System.out.println(error.getDefaultMessage()));
+        }
+
         System.out.println(user.getId());
         System.out.println(user.getUsername());
         System.out.println(user.getPassword());
