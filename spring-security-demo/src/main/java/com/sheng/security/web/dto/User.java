@@ -1,6 +1,7 @@
 package com.sheng.security.web.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import com.sheng.security.web.validator.MyConstraint;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.validation.constraints.Past;
@@ -15,6 +16,7 @@ public class User {
     public interface UserDetailView extends UserSimpleView{};
 
     private Integer id;
+    @MyConstraint(message = "这是一个测试")
     private String username;
     @NotBlank(message = "密码不能为空")
     private String password;
