@@ -6,6 +6,7 @@ import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,5 +35,12 @@ public class UserController {
         list.add(new User());
         list.add(new User());
         return list;
+    }
+
+    @RequestMapping(value = "user/{id}", method = RequestMethod.GET)
+    public User getInfo(@PathVariable String id) {
+        User user = new User();
+        user.setUsername("sheng");
+        return user;
     }
 }
