@@ -1,4 +1,4 @@
-package com.sheng.security;
+package com.sheng.security.web.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
