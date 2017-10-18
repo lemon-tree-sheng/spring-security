@@ -101,4 +101,12 @@ public class UserControllerTest {
 
         System.out.println(response);
     }
+
+    @Test
+    public void whenDeleteSuccess() throws Exception {
+
+        mockMvc.perform(delete("/user/1")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(status().isOk());
+    }
 }
