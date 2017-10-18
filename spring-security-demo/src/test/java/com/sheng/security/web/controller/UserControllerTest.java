@@ -2,7 +2,6 @@ package com.sheng.security.web.controller;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.experimental.results.ResultMatchers;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -27,13 +26,15 @@ public class UserControllerTest {
     private MockMvc mockMvc;
 
     @Before
-    private void setup() {
+    public void setup() {
         mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
     }
 
     @Test
     public void whenQuerySuccess() throws Exception {
-        mockMvc.perform(get("/user").contentType(MediaType.APPLICATION_JSON_UTF8))
+        mockMvc.perform(get("/user")
+//                .param("username", "sheng")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.length()").value(3));
     }
