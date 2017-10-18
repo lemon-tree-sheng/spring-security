@@ -67,4 +67,14 @@ public class UserControllerTest {
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().is4xxClientError());
     }
+
+    @Test
+    public void whenCreateSuccess() throws Exception {
+        String content = "{\"username\":\"sheng\",\"password\":null}";
+        mockMvc.perform(post("/user")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(content))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(1));
+    }
 }
