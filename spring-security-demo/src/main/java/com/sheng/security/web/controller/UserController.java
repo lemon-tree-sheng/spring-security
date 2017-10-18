@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,8 +52,8 @@ public class UserController {
         return user;
     }
 
-    @PostMapping
-    public User create(@RequestBody User user) {
+    @PostMapping// 405错误一般是因为请求方法错误
+    public User create(@Valid @RequestBody User user) {
         System.out.println(user.getId());
         System.out.println(user.getUsername());
         System.out.println(user.getPassword());
