@@ -3,6 +3,7 @@ package com.sheng.security.web.controller;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.sheng.security.web.dto.User;
 import com.sheng.security.web.dto.UserQueryCondition;
+import com.sheng.security.web.exception.UserNotExistException;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 import org.springframework.data.domain.Pageable;
@@ -52,9 +53,12 @@ public class UserController {
     @JsonView(User.UserDetailView.class)
     @GetMapping("/{id:\\d+}")
     public User getInfo(@PathVariable String id) {
-        User user = new User();
-        user.setUsername("sheng");
-        return user;
+
+        throw new UserNotExistException("1");
+
+//        User user = new User();
+//        user.setUsername("sheng");
+//        return user;
     }
 
     @PostMapping// 405错误一般是因为请求方法错误
