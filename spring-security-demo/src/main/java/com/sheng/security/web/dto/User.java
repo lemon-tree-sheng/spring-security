@@ -2,6 +2,8 @@ package com.sheng.security.web.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import java.util.Date;
+
 /**
  * Created by shengxingyue on 2017/10/18.
  */
@@ -16,6 +18,8 @@ public class User {
     private String username;
     @JsonView(UserDetailView.class)
     private String password;
+    @JsonView(UserSimpleView.class)
+    private Date birthday;
 
     public Integer getId() {
         return id;
@@ -39,5 +43,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 }

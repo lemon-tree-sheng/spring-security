@@ -56,6 +56,7 @@ public class UserController {
         System.out.println(user.getId());
         System.out.println(user.getUsername());
         System.out.println(user.getPassword());
+        System.out.println(user.getBirthday());
 
         user.setId(1);
         return user;

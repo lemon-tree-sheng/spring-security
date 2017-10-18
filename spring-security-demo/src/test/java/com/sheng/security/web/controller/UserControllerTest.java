@@ -15,6 +15,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.util.Date;
+
 /**
  * Created by shengxingyue on 2017/10/18.
  */
@@ -70,11 +72,16 @@ public class UserControllerTest {
 
     @Test
     public void whenCreateSuccess() throws Exception {
-        String content = "{\"username\":\"sheng\",\"password\":null}";
-        mockMvc.perform(post("/user")
+
+        Long now = new Date().getTime();
+        String content = "{\"username\":\"sheng\",\"password\":null,\"birthday\":" + now + "}";
+        String response = mockMvc.perform(post("/user")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(content))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(1));
+                .andExpect(jsonPath("$.id").value(1))
+                .andReturn().getResponse().getContentAsString();
+
+        System.out.println(response);
     }
 }
