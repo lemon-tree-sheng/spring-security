@@ -34,7 +34,7 @@ public class UserControllerTest {
 
     @Test
     public void whenQuerySuccess() throws Exception {
-        mockMvc.perform(get("/user")
+        String response = mockMvc.perform(get("/user")
                 .param("username", "sheng")
                 .param("age", "18")
                 .param("ageTo", "60")
@@ -44,15 +44,21 @@ public class UserControllerTest {
                 .param("sort", "age,desc")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.length()").value(3)); // @see github.com/json-path
+                .andExpect(jsonPath("$.length()").value(3)) // @see github.com/json-path
+                .andReturn().getResponse().getContentAsString();
+
+        System.out.println(response);
     }
 
     @Test
     public void whenGetInfoSuccess() throws Exception {
-        mockMvc.perform(get("/user/1")
+        String response = mockMvc.perform(get("/user/1")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.username").value("sheng"));
+                .andExpect(jsonPath("$.username").value("sheng"))
+                .andReturn().getResponse().getContentAsString();
+
+        System.out.println(response);
     }
 
     @Test
