@@ -37,7 +37,7 @@ public class UserController {
         return list;
     }
 
-    @RequestMapping(value = "user/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "user/{id:\\d+}", method = RequestMethod.GET)
     public User getInfo(@PathVariable String id) {
         User user = new User();
         user.setUsername("sheng");
