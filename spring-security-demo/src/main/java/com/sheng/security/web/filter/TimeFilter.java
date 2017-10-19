@@ -14,7 +14,7 @@ import java.util.Date;
 /**
  * Created by shengxingyue on 2017/10/19.
  */
-@Component
+//@Component
 public class TimeFilter implements Filter{
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
