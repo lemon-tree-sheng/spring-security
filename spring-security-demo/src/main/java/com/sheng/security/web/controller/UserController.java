@@ -53,12 +53,10 @@ public class UserController {
     @JsonView(User.UserDetailView.class)
     @GetMapping("/{id:\\d+}")
     public User getInfo(@PathVariable String id) {
-
-        throw new UserNotExistException("1");
-
-//        User user = new User();
-//        user.setUsername("sheng");
-//        return user;
+        System.out.println("进入 getInfo 服务");
+        User user = new User();
+        user.setUsername("sheng");
+        return user;
     }
 
     @PostMapping// 405错误一般是因为请求方法错误
