@@ -1,4 +1,4 @@
-package com.sheng.security.web.dto;
+package com.sheng.security.dto;
 
 /**
  * Created by shengxingyue on 2017/10/20.

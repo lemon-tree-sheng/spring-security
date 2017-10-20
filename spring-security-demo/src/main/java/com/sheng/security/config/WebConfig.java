@@ -1,4 +1,4 @@
-package com.sheng.security.web.config;
+package com.sheng.security.config;
 
 import com.sheng.security.web.filter.TimeFilter;
 import com.sheng.security.web.interceptor.TimeInterceptor;

@@ -1,6 +1,6 @@
 package com.sheng.security.web.controller;
 
-import com.sheng.security.web.exception.UserNotExistException;
+import com.sheng.security.exception.UserNotExistException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

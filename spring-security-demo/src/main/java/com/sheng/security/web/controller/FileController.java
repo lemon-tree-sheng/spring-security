@@ -1,6 +1,6 @@
 package com.sheng.security.web.controller;
 
-import com.sheng.security.web.dto.FileInfo;
+import com.sheng.security.dto.FileInfo;
 import org.apache.commons.io.IOUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

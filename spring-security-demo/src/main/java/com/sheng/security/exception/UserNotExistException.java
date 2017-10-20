@@ -1,4 +1,4 @@
-package com.sheng.security.web.exception;
+package com.sheng.security.exception;
 
 /**
  * Created by shengxingyue on 2017/10/19.

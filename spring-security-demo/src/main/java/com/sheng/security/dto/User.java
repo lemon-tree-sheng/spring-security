@@ -1,4 +1,4 @@
-package com.sheng.security.web.dto;
+package com.sheng.security.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.sheng.security.web.validator.MyConstraint;
